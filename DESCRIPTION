@@ -1,0 +1,15 @@
+Package: FPTP2AV
+Type: Package
+Title: Simulate Election Outcomes for AV Given FPTP Votes.
+Date/Publication: 2013-08-27
+Author: Daniel Marcelino
+Version: 1.0
+Maintainer: Daniel Marcelino <dmarcelino@live.com>
+URL: http://CRAN.R-project.org/package=FPTP2AV
+Description: A program to simulate election outcomes under the alternative vote system using the actual FPTP votes.
+Imports:foreign,data.table
+Suggests: SciencesPo
+LazyData: yes
+License: LGPL (>= 2.0, < 3)
+BugReports: http://github.com/danielmarcelino/FPTP2AV
+ByteCompile: TRUE

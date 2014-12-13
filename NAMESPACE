@@ -1,0 +1,5 @@
+importFrom("data.table", "data.table")
+importFrom("data.table", ":=")
+export(
+fptp2av
+)
