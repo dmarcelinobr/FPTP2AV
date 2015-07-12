@@ -157,7 +157,7 @@ This is the 2010 British general election data as made available by the electora
     \item{\code{YRDPL}}{a numeric vector}
   }
 }
-\source{\url{http://www.electoralcommission.org.uk/elections/}
+\source{\url{http://www.electoralcommission.org.uk/}
 }
 \references{
 Marcelino, Daniel (2013). \emph{SciencesPo: A Tool Set for Analyzing Political Behaviour Data}. Available at SSRN: \url{http://dx.doi.org/10.2139/ssrn.2320547}
