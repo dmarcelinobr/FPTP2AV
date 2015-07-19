@@ -1,5 +1,6 @@
 ^packrat/
 ^\.Rprofile$
+^\.Rhistory$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$

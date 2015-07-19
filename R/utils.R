@@ -1,9 +1,23 @@
+.onLoad <- function(libname, pkgname) {
+  envir <<- new.env()
+}
+
+.onUnload <- function(libpath) {
+  # Force finalize() on objects
+  gc();
+} # .onUnload()
+
+
 #' Internals
 #'
 #' @export
 #' @importFrom stats na.omit
+
 .District <-
   function(name, electorate, each_row, link, max_vote_length){
+    candidates <- NULL
+    new1 <- NULL
+    vote_spread <- NULL
     votes<-list()
     for(candid in 1:length(each_row[,candidates])){
       followers<-link[[as.character(each_row[candid,candidates])]]
@@ -19,7 +33,7 @@
         }
         depth_vec<-sample(1:max_vote_length, as.numeric(as.character(each_row[candid,vote_spread])), replace=T)
         depth_vec<-data.table::data.table(depth_vec)
-        depth_vec<-depth_vec[,c("new1"):=.add_ballot(depth_vec,ball_s)]
+        depth_vec<-depth_vec[,c("new1"):=.addBallot(depth_vec,ball_s)]
         votes_1<-depth_vec[,new1]
       } else {
         ballot<-vector()
@@ -164,6 +178,8 @@ NULL
 #' @export
 .constructFollowerProbabilityMap <-
   function(followers, each_row){
+    candidates <- NULL
+    vote_spread <- NULL
     follower_probability_map<-list()
     follower_probability_names<-vector()
     counter<-0
@@ -187,7 +203,7 @@ NULL
 #' Internals
 #'
 #' @export
-.add_ballot <-
+.addBallot <-
   function(x, ball_s){
     r1<-ball_s[x]
     return(r1)
@@ -212,5 +228,53 @@ NULL
     if(length(follower!=0)) ball[i]<-follower
   }
   return(ball)
+}
+NULL
+
+
+
+#' Read/Write Multiple csv Files at a Time
+#' 
+#' \code{mcsv_w} - Read and assign multiple csv files at the same time.
+#' 
+#' @param files csv file(s) to read.   
+#' @param a.names object names to assign the csv file(s) to.  If NULL assigns 
+#' the csv to the name(s) of the csv file(s) in the global environment.
+#' @param l.name A character vector of names to assign to the csv files 
+#' (dataframes) being read in.  Default (NULL) uses the names of the files in 
+#' the directory without the file extension.
+#' @param list A character vector of length one to name the list being read in.  
+#' Default is \code{"L1"}.
+#' @param pos where to do the removal. By default, uses the current environment. 
+#' @param envir the environment to use. 
+#' @param \dots data.frame object(s) to write to a file
+#' @export
+
+readWriteCSV <-
+function(files, a.names = NULL, l.name = NULL, list = TRUE, pos = 1,
+    envir = as.environment(pos)){
+    if (is.null(a.names)){
+        a.names <- unlist(lapply(files, function(x){
+            v <- unlist(strsplit(x, "/|\\\\"))
+            v <- v[length(v)]
+            gsub(".csv", "", v)
+        }))
+    }
+    invisible(lapply(seq_along(files), function(i) {
+        assign(a.names[i], read.csv(files[i]), envir = envir)
+    }))
+    if (list) {
+        L1 <- lapply(a.names, function(x){
+            get(x)
+        }) 
+        names(L1) <- a.names
+        if (is.null(l.name)){
+            l.name <- "L1"
+        }
+        assign(l.name, L1, envir = envir)
+    }
+    assi <- paste(c(l.name, a.names), collapse=", ")
+    message(paste0("objects assigned: ", assi))
+    invisible(a.names)
 }
 NULL

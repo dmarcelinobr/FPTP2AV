@@ -5,7 +5,7 @@ Date/Publication: 2013-08-27
 Author: Daniel Marcelino
 Version: 1.0
 Maintainer: Daniel Marcelino <dmarcelino@live.com>
-Description: A program to simulate election outcomes under the alternative vote system using the actual FPTP votes.
+Description: This function simulates election outcomes for the Alternative Vote rule using the actual FPTP votes.
 Imports: data.table
 Suggests: SciencesPo
 LazyData: yes

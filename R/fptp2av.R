@@ -1,9 +1,10 @@
 #' @encoding UTF-8
 #' @title Simulate election outcomes for AV given FPTP votes.
 #'
-#' @description A program to simulate election outcomes under the Alternative Vote System using the actual First-Past-The-Post votes.
+#' @description This program simulates election outcomes for  the Alternative Vote System using the actual First-Past-The-Post votes. It takes a wide table with the election results and returns a \code{csv} file with simulations for further analysis.
 #'
 #' @param data A flat table or data frame containing FPTP votes for each district.
+#'
 #' @param link A link function containing a structure for candidates/parties relations.
 #'
 #' @return A text file \code{(csv)} containing simulated electoral results for each district.
@@ -14,8 +15,8 @@
 #'
 #' @export
 #'
-#' @example
-#' # Feeding data:
+#' @examples
+#' #Feeding data:
 #' data(ge2010)
 #'
 #' # Let's take a small portion of the data.
@@ -63,8 +64,9 @@
 #' @importFrom data.table data.table :=
 #' @importFrom utils write.csv
 #' @importFrom stats na.omit complete.cases
-fptp2av <-
-function(data=NULL, link=NULL){
+fptp2av <- function(data=NULL, link=NULL){
+  candidates <- NULL
+  vote_spread <- NULL
 	if(is.null(data)){
 	stop("A valid FPTP vote dataset is needed to perform the simulations.")
 	}
@@ -74,8 +76,6 @@ function(data=NULL, link=NULL){
 		}
 		else{
 	start_time<-(Sys.time())
-	new1<-NULL;candidates<-NULL;vote_spread<-NULL;
-
 column.names<-c("District", "Turnout", "Outcome", "FPTP.Winner", "FPTP.Winner.Votes", "AV.Winner", "AV.Winner.Votes")
 data.to.read<-data.table::data.table(data)
 parties<-names(data.to.read)[c(7:ncol(data.to.read))]

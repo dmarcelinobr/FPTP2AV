@@ -2,3 +2,4 @@ packrat/lib*/
 .Rproj.user
 .DS_Store
 .Rprofile
+.Rhistory

@@ -1,0 +1,79 @@
+> summaryRprof(filename = "Rprof.out")
+$by.self
+                                   self.time self.pct total.time total.pct
+c                                      18.74    43.52      18.74     43.52
+construct_follower_probability_map     10.06    23.36      17.94     41.66
+:                                       2.08     4.83       2.08      4.83
+as.null.default                         1.86     4.32       1.86      4.32
+structure                               1.64     3.81       2.42      5.62
+as.null                                 1.54     3.58       3.40      7.90
+get_follower                            1.14     2.65       3.80      8.82
+==                                      1.00     2.32       1.00      2.32
+add_followers                           0.84     1.95      23.14     53.74
+sample                                  0.72     1.67       2.68      6.22
+match                                   0.60     1.39       0.60      1.39
+Constituency                            0.46     1.07      35.84     83.23
+!=                                      0.40     0.93       0.40      0.93
+vector                                  0.26     0.60       0.26      0.60
+names                                   0.24     0.56       0.24      0.56
+redistributed_votes                     0.22     0.51       7.18     16.67
+na.omit                                 0.22     0.51       0.36      0.84
+%in%                                    0.16     0.37       0.42      0.98
++                                       0.16     0.37       0.16      0.37
+>=                                      0.12     0.28       0.12      0.28
+length                                  0.12     0.28       0.12      0.28
+list                                    0.12     0.28       0.12      0.28
+na.omit.default                         0.12     0.28       0.12      0.28
+unname                                  0.12     0.28       0.12      0.28
+-                                       0.02     0.05       0.02      0.05
+<=                                      0.02     0.05       0.02      0.05
+>                                       0.02     0.05       0.02      0.05
+as.character                            0.02     0.05       0.02      0.05
+lazyLoadDBfetch                         0.02     0.05       0.02      0.05
+scan                                    0.02     0.05       0.02      0.05
+
+$by.total
+                                   total.time total.pct self.time self.pct
+get_results                             43.02     99.91      0.00     0.00
+lapply                                  43.02     99.91      0.00     0.00
+unlist                                  43.02     99.91      0.00     0.00
+Constituency                            35.84     83.23      0.46     1.07
+add_followers                           23.14     53.74      0.84     1.95
+c                                       18.74     43.52     18.74    43.52
+construct_follower_probability_map      17.94     41.66     10.06    23.36
+redistributed_votes                      7.18     16.67      0.22     0.51
+av.count                                 7.18     16.67      0.00     0.00
+get_follower                             3.80      8.82      1.14     2.65
+as.null                                  3.40      7.90      1.54     3.58
+sample                                   2.68      6.22      0.72     1.67
+structure                                2.42      5.62      1.64     3.81
+:                                        2.08      4.83      2.08     4.83
+as.null.default                          1.86      4.32      1.86     4.32
+==                                       1.00      2.32      1.00     2.32
+match                                    0.60      1.39      0.60     1.39
+%in%                                     0.42      0.98      0.16     0.37
+!=                                       0.40      0.93      0.40     0.93
+na.omit                                  0.36      0.84      0.22     0.51
+vector                                   0.26      0.60      0.26     0.60
+names                                    0.24      0.56      0.24     0.56
++                                        0.16      0.37      0.16     0.37
+>=                                       0.12      0.28      0.12     0.28
+length                                   0.12      0.28      0.12     0.28
+list                                     0.12      0.28      0.12     0.28
+na.omit.default                          0.12      0.28      0.12     0.28
+unname                                   0.12      0.28      0.12     0.28
+-                                        0.02      0.05      0.02     0.05
+<=                                       0.02      0.05      0.02     0.05
+>                                        0.02      0.05      0.02     0.05
+as.character                             0.02      0.05      0.02     0.05
+lazyLoadDBfetch                          0.02      0.05      0.02     0.05
+scan                                     0.02      0.05      0.02     0.05
+read.csv                                 0.02      0.05      0.00     0.00
+read.table                               0.02      0.05      0.00     0.00
+
+$sample.interval
+[1] 0.02
+
+$sampling.time
+[1] 43.06
+
